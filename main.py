@@ -3,17 +3,23 @@ import math
 pygame.init()
 
 
-WIDTH, HEIGHT = 800, 800
+WIDTH, HEIGHT = 900, 900
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Planet Simulation in Python")
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 SUN = (242, 131, 32)
-EARTH = (66, 107, 143)
-MARS = (242, 123, 95)
 MERCURY = (192, 188, 189)
 VENUS = (244, 219, 196)
+EARTH = (66, 107, 143)
+MARS = (242, 123, 95)
+JUPITER = (191, 175, 155)
+SATURN = (218, 183, 120)
+URANUS = (149, 187, 190)
+NEPTUNE = (101, 123, 165)
+PLUTO =  (244, 235, 220)
+
 
 FONT = pygame.font.SysFont("courier new", 16)
 
@@ -46,8 +52,8 @@ class Planet:
             updated_points = []
             for point in self.orbit:
                 x, y = point
-                x = x * self.SCALE + WIDTH/2
-                y = y * self.SCALE + HEIGHT/2
+                x = x*self.SCALE + WIDTH/2
+                y = y*self.SCALE + HEIGHT/2
                 updated_points.append((x, y))
         
             pygame.draw.lines(win, self.color, False, updated_points, 2)
@@ -95,22 +101,37 @@ def main():
     run = True
     clock = pygame.time.Clock()
     
-    sun = Planet(0, 0, 30, SUN, 1.98892 * 10**30)
+    sun = Planet(0, 0, 30, SUN, 1.989 * 10**30)
     sun.sun = True
     
-    earth = Planet(1 * Planet.AU, 0, 16, EARTH, 5.9742 * 10*24)
-    earth.y_velocity = 29.783 * 1000  # meters/second
-    
-    mars = Planet(1.524 * Planet.AU, 0, 12, MARS, 6.39 * 10**23)
-    mars.y_velocity = 24.077 * 1000  # meters/second
-    
-    mercury = Planet(0.387 * Planet.AU, 0, 8, MERCURY, 3.30 * 10**23)
+    mercury = Planet(0.387 * Planet.AU, 0, 2.43, MERCURY, 0.330 * 10**24)
     mercury.y_velocity = 47.4 * 1000  # meters/second
     
-    venus = Planet(0.723 * Planet.AU, 0, 14, VENUS, 4.8685 * 10**24)
-    venus.y_velocity = 35.02 *1000  # meters/second
-
-    planets = [sun, earth, mars, mercury, venus]
+    venus = Planet(0.723 * Planet.AU, 0, 6.05, VENUS, 4.87 * 10**24)
+    venus.y_velocity = 35.02 * 1000  # meters/second
+    
+    earth = Planet(1 * Planet.AU, 0, 6.37, EARTH, 5.97 * 10*24)
+    earth.y_velocity = 29.783 * 1000  # meters/second
+    
+    mars = Planet(1.524 * Planet.AU, 0, 3.39, MARS, 0.642 * 10**24)
+    mars.y_velocity = 24.077 * 1000  # meters/second
+    
+    jupiter = Planet(5.20 * Planet.AU, 0, 71.4, JUPITER, 1898 * 10**24)
+    jupiter.y_velocity = 13.1 * 1000  # meters/second
+    
+    saturn = Planet(9.54 * Planet.AU, 0, 60.2, SATURN, 568 * 10**24)
+    saturn.y_velocity = 9.7 * 1000  # meters/second
+    
+    uranus = Planet(19.20 * Planet.AU, 0, 25.5, URANUS, 86.8 * 10**24)
+    uranus.y_velocity = 6.8 * 1000  # meters/second
+    
+    neptune = Planet(30.06 * Planet.AU, 0, 24.7, NEPTUNE, 102 * 10**24)
+    neptune.y_velocity = 5.4 * 1000  # meters/second
+    
+    pluto = Planet(39.5 * Planet.AU, 0, 1.18, PLUTO, 0.0130 * 10**24)
+    pluto.y_velocity = 4.7 * 1000  # meters/second
+    
+    planets = [sun, mercury, venus, earth, mars, jupiter, saturn, uranus, neptune, pluto]
     
     while run:
         clock.tick(60)
