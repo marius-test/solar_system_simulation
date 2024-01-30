@@ -3,7 +3,7 @@ import math
 pygame.init()
 
 
-WIDTH, HEIGHT = 900, 900
+WIDTH, HEIGHT = 1920, 1080
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Planet Simulation in Python")
 
@@ -101,38 +101,40 @@ def main():
     run = True
     clock = pygame.time.Clock()
     
-    sun = Planet(0, 0, 30, SUN, 1.989 * 10**30)
+    sun = Planet(0, 0, 695700 / 10000, SUN, 1.989 * 10**30)
     sun.sun = True
     
-    mercury = Planet(0.387 * Planet.AU, 0, 2.43, MERCURY, 0.330 * 10**24)
+    mercury = Planet(0.387 * Planet.AU, 0, 2439.5 / 10000, MERCURY, 0.330 * 10**24)
     mercury.y_velocity = 47.4 * 1000  # meters/second
     
-    venus = Planet(0.723 * Planet.AU, 0, 6.05, VENUS, 4.87 * 10**24)
+    venus = Planet(0.723 * Planet.AU, 0, 6052 / 10000, VENUS, 4.87 * 10**24)
     venus.y_velocity = 35.02 * 1000  # meters/second
     
-    earth = Planet(1 * Planet.AU, 0, 6.37, EARTH, 5.97 * 10*24)
+    earth = Planet(1 * Planet.AU, 0, 6378 / 10000, EARTH, 5.97 * 10*24)
     earth.y_velocity = 29.783 * 1000  # meters/second
     
-    mars = Planet(1.524 * Planet.AU, 0, 3.39, MARS, 0.642 * 10**24)
+    mars = Planet(1.524 * Planet.AU, 0, 3396 / 10000, MARS, 0.642 * 10**24)
     mars.y_velocity = 24.077 * 1000  # meters/second
     
-    jupiter = Planet(5.20 * Planet.AU, 0, 71.4, JUPITER, 1898 * 10**24)
+    jupiter = Planet(5.20 * Planet.AU, 0, 71492 / 10000, JUPITER, 1898 * 10**24)
     jupiter.y_velocity = 13.1 * 1000  # meters/second
     
-    saturn = Planet(9.54 * Planet.AU, 0, 60.2, SATURN, 568 * 10**24)
+    saturn = Planet(9.54 * Planet.AU, 0, 60268 / 10000, SATURN, 568 * 10**24)
     saturn.y_velocity = 9.7 * 1000  # meters/second
     
-    uranus = Planet(19.20 * Planet.AU, 0, 25.5, URANUS, 86.8 * 10**24)
+    uranus = Planet(19.20 * Planet.AU, 0, 25559 / 10000, URANUS, 86.8 * 10**24)
     uranus.y_velocity = 6.8 * 1000  # meters/second
     
-    neptune = Planet(30.06 * Planet.AU, 0, 24.7, NEPTUNE, 102 * 10**24)
+    neptune = Planet(30.06 * Planet.AU, 0, 24764 / 10000, NEPTUNE, 102 * 10**24)
     neptune.y_velocity = 5.4 * 1000  # meters/second
     
-    pluto = Planet(39.5 * Planet.AU, 0, 1.18, PLUTO, 0.0130 * 10**24)
+    pluto = Planet(39.5 * Planet.AU, 0, 1188 / 10000, PLUTO, 0.0130 * 10**24)
     pluto.y_velocity = 4.7 * 1000  # meters/second
     
     planets = [sun, mercury, venus, earth, mars, jupiter, saturn, uranus, neptune, pluto]
     
+    paused = False
+            
     while run:
         clock.tick(60)
         WIN.fill(BLACK)
