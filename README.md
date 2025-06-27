@@ -26,3 +26,5 @@ Planetary constants (mass, radius, orbital distance, velocity) were based on dat
   `F = G × (m₁ × m₂) / r²`
 - Uses astronomical units (AU), gravitational constant (G), and a timestep of one simulated day
 - A solid exercise in applying physics, logic, and vector math in code
+
+> Feel free to use, modify, or build upon this project.
