@@ -1,4 +1,4 @@
-# planet_simulation
+# solar_system_simulation
 
 A solar system simulation built in **Python**, using the **pygame** library for real-time graphics and orbital rendering.
 
