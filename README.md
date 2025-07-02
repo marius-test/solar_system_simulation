@@ -10,7 +10,7 @@ A solar system simulation built in **Python**, using the **pygame** library for 
 - Draws orbit trails for each planet
 - Pause and exit functionality
 
-### Libraries Used
+### Libraries
 
 - `pygame`
 - `math`
